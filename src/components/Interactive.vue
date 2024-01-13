@@ -12,8 +12,6 @@ export interface Interaction {
 //   onKey(offset: Interaction): void;
 // }
 
-// const props = defineProps<Props>()
-
 const emit = defineEmits<{
   (e: 'onMove', interaction: Interaction): void
   (e: 'onKey', offset: Interaction): void
