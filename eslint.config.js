@@ -14,6 +14,6 @@ export default antfu({
     'unicorn/prefer-number-properties': 'off',
     'ts/no-use-before-define': 'off',
     'prefer-template': 'off',
-    'curly': 'off'
+    'curly': 'off',
   },
 })
