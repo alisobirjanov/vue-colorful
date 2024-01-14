@@ -29,7 +29,7 @@ const nodeClassName = formatClassName(['react-colorful__hue'])
 </script>
 
 <template>
-  <div :className="nodeClassName">
+  <div :class="nodeClassName">
     <Interactive
       aria-label="Hue" :aria-valuenow="round(hue)" aria-valuemax="360" aria-valuemin="0" @on-move="handleMove"
       @on-key="handleKey"
