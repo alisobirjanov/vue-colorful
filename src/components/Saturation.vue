@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, watch, ref } from 'vue'
 import { clamp, hsvaToHslString, round } from '../utils'
 import type { Interaction } from './Interactive.vue'
 import Interactive from './Interactive.vue'
@@ -10,7 +10,7 @@ import Pointer from './Pointer.vue'
 interface Props {
   hsva: HsvaColor
 }
-const { hsva } = defineProps<Props>()
+const props = defineProps<Props>()
 
 const emit = defineEmits<{
   (e: 'onChange', newColor: { s: number, v: number }): void
@@ -28,18 +28,29 @@ const handleMove = (interaction: Interaction) => {
 const handleKey = (offset: Interaction) => {
   // Saturation and brightness always fit into [0, 100] range
   emit('onChange', {
-    s: clamp(hsva.s + offset.left * 100, 0, 100),
-    v: clamp(hsva.v - offset.top * 100, 0, 100),
+    s: clamp(props.hsva.s + offset.left * 100, 0, 100),
+    v: clamp(props.hsva.v - offset.top * 100, 0, 100),
   })
 }
 
-const containerStyle = computed(() => ({
-  backgroundColor: hsvaToHslString({ h: hsva.h, s: 100, v: 100, a: 1 }),
-}))
+// const containerStyle = computed(() => {
+//   return {
+//     backgroundColor: hsvaToHslString({ h: hsva.h, s: 100, v: 100, a: 1 }),
+//   }
+// })
+
+// const containerStyle = ref({
+//   backgroundColor: hsvaToHslString({ h: hsva.h, s: 100, v: 100, a: 1 }),
+// })
+
+// watch(() => hsva, () => {
+//   containerStyle.value.backgroundColor = hsvaToHslString({ h: hsva.h, s: 100, v: 100, a: 1 })
+//   console.log('watch')
+// })
 </script>
 
 <template>
-  <div className="react-colorful__saturation" :style="containerStyle">
+  <div className="react-colorful__saturation" :style="{backgroundColor: hsvaToHslString({ h: hsva.h, s: 100, v: 100, a: 1 })}">
     <Interactive
       aria-label="Color"
       :aria-valuetext="`Saturation ${round(hsva.s)}%, Brightness ${round(hsva.v)}%`"
