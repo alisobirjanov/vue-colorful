@@ -155,5 +155,7 @@ function toggleDocumentEvents(state?: boolean) {
     @touchstart="handleMoveStart"
     @mousedown="handleMoveStart"
     @keydown="handleKeyDown"
-  />
+  >
+    <slot />
+  </div>
 </template>
