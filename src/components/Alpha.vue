@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import type { HsvaColor } from '../types'
 import { clamp, formatClassName, hsvaToHslaString, round } from '../utils'
 import type { Interaction } from './Interactive.vue'
 import Interactive from './Interactive.vue'
 
-// import { HsvaColor } from "../../types";
 
-type HsvaColor = any
 
 interface Props {
   className?: string
