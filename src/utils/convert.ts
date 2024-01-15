@@ -1,13 +1,5 @@
+import type { HslColor, HslaColor, HsvColor, HsvaColor, RgbColor, RgbaColor } from '../types'
 import { round } from './round'
-
-// import { RgbaColor, RgbColor, HslaColor, HslColor, HsvaColor, HsvColor } from "../types";
-
-type RgbaColor = any
-type RgbColor = any
-type HslaColor = any
-type HslColor = any
-type HsvaColor = any
-type HsvColor = any
 
 /**
  * Valid CSS <angle> units.
