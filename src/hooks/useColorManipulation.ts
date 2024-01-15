@@ -43,7 +43,6 @@ export function useColorManipulation<T extends AnyColor>(
     ) {
       cache.value = { hsva: hsva.value, color: newColor }
       hsva.value = newColor
-      
     }
   })
 

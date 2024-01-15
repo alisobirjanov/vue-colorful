@@ -8,8 +8,7 @@ interface Props {
   color: string
 }
 
-withDefaults(defineProps<Props>(), {top: 0.5})
-
+withDefaults(defineProps<Props>(), { top: 0.5 })
 
 const nodeClassName = formatClassName(['react-colorful__pointer'])
 </script>

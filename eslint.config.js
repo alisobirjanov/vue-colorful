@@ -15,6 +15,6 @@ export default antfu({
     'ts/no-use-before-define': 'off',
     'prefer-template': 'off',
     'curly': 'off',
-    'no-console': 'warn'
+    'no-console': 'warn',
   },
 })

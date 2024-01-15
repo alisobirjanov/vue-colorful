@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { computed, watch, ref } from 'vue'
 import { clamp, hsvaToHslString, round } from '../utils'
 import type { Interaction } from './Interactive.vue'
 import Interactive from './Interactive.vue'
@@ -50,7 +49,7 @@ const handleKey = (offset: Interaction) => {
 </script>
 
 <template>
-  <div className="react-colorful__saturation" :style="{backgroundColor: hsvaToHslString({ h: hsva.h, s: 100, v: 100, a: 1 })}">
+  <div className="react-colorful__saturation" :style="{ backgroundColor: hsvaToHslString({ h: hsva.h, s: 100, v: 100, a: 1 }) }">
     <Interactive
       aria-label="Color"
       :aria-valuetext="`Saturation ${round(hsva.s)}%, Brightness ${round(hsva.v)}%`"
