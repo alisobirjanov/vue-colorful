@@ -3,10 +3,11 @@
 // import { useStyleSheet } from "../../hooks/useStyleSheet";
 // import { ColorModel, ColorPickerBaseProps, AnyColor } from "../types";
 
-import { formatClassName } from '../utils'
 import { useColorManipulation } from '../hooks/useColorManipulation'
-import Saturation from './Saturation.vue'
+import { formatClassName } from '../utils'
+import Alpha from './Alpha.vue'
 import Hue from './Hue.vue'
+import Saturation from './Saturation.vue'
 
 // interface Props<T extends AnyColor> extends Partial < ColorPickerBaseProps < T >> {
 //   colorModel: ColorModel<T>;
@@ -15,6 +16,7 @@ import Hue from './Hue.vue'
 interface Props {
   colorModel: any
   color?: string
+  alpha: boolean
 }
 
 const { colorModel, color = colorModel.defaultColor } = defineProps<Props>()
@@ -31,6 +33,7 @@ const [hsva, updateHsva] = useColorManipulation(colorModel, color, e => emit('on
 <template>
   <div :class="nodeClassName">
     <Saturation :hsva="hsva" @on-change="updateHsva" />
-    <Hue :hue="hsva.h" class="react-colorful__last-control" @on-change="updateHsva" />
+    <Hue :hue="hsva.h" @on-change="updateHsva" />
+    <Alpha :hsva="hsva" class="vue-colorful__last-control" @on-change="updateHsva" />
   </div>
 </template>

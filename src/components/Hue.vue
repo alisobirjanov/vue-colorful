@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { clamp, formatClassName, hsvaToHslString, round } from '../utils'
-import type { Interaction } from './Interactive.vue'
-import Interactive from './Interactive.vue'
-import Pointer from './Pointer.vue'
+import { clamp, formatClassName, hsvaToHslString, round } from '../utils';
+import type { Interaction } from './Interactive.vue';
+import Interactive from './Interactive.vue';
+import Pointer from './Pointer.vue';
 
 interface Props {
   hue: number
@@ -25,7 +25,7 @@ const handleKey = (offset: Interaction) => {
   })
 }
 
-const nodeClassName = formatClassName(['react-colorful__hue'])
+const nodeClassName = formatClassName(['vue-colorful__hue'])
 </script>
 
 <template>
@@ -35,7 +35,7 @@ const nodeClassName = formatClassName(['react-colorful__hue'])
       @on-key="handleKey"
     >
       <Pointer
-        class="react-colorful__hue-pointer" :left="hue / 360"
+        class="vue-colorful__hue-pointer" :left="hue / 360"
         :color="hsvaToHslString({ h: hue, s: 100, v: 100, a: 1 })"
       />
     </Interactive>

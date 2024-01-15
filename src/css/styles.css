@@ -8,7 +8,7 @@
   cursor: default;
 }
 
-.react-colorful__saturation {
+.vue-colorful__saturation {
   position: relative;
   flex-grow: 1;
   border-color: transparent;
@@ -18,8 +18,8 @@
     linear-gradient(to right, #fff, rgba(255, 255, 255, 0));
 }
 
-.react-colorful__pointer-fill,
-.react-colorful__alpha-gradient {
+.vue-colorful__pointer-fill,
+.vue-colorful__alpha-gradient {
   content: "";
   position: absolute;
   left: 0;
@@ -31,18 +31,18 @@
 }
 
 /* Improve elements rendering on light backgrounds */
-.react-colorful__alpha-gradient,
-.react-colorful__saturation {
+.vue-colorful__alpha-gradient,
+.vue-colorful__saturation {
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
 }
 
-.react-colorful__hue,
-.react-colorful__alpha {
+.vue-colorful__hue,
+.vue-colorful__alpha {
   position: relative;
   height: 24px;
 }
 
-.react-colorful__hue {
+.vue-colorful__hue {
   background: linear-gradient(
     to right,
     #f00 0%,
@@ -56,11 +56,11 @@
 }
 
 /* Round bottom corners of the last element: `Hue` for `ColorPicker` or `Alpha` for `AlphaColorPicker` */
-.react-colorful__last-control {
+.vue-colorful__last-control {
   border-radius: 0 0 8px 8px;
 }
 
-.react-colorful__interactive {
+.vue-colorful__interactive {
   position: absolute;
   left: 0;
   top: 0;
@@ -72,7 +72,7 @@
   touch-action: none;
 }
 
-.react-colorful__pointer {
+.vue-colorful__pointer {
   position: absolute;
   z-index: 1;
   box-sizing: border-box;
@@ -85,23 +85,23 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.react-colorful__interactive:focus .react-colorful__pointer {
+.vue-colorful__interactive:focus .vue-colorful__pointer {
   transform: translate(-50%, -50%) scale(1.1);
 }
 
 /* Chessboard-like pattern for alpha related elements */
-.react-colorful__alpha,
-.react-colorful__alpha-pointer {
+.vue-colorful__alpha,
+.vue-colorful__alpha-pointer {
   background-color: #fff;
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill-opacity=".05"><rect x="8" width="8" height="8"/><rect y="8" width="8" height="8"/></svg>');
 }
 
 /* Display the saturation pointer over the hue one */
-.react-colorful__saturation-pointer {
+.vue-colorful__saturation-pointer {
   z-index: 3;
 }
 
 /* Display the hue pointer over the alpha one */
-.react-colorful__hue-pointer {
+.vue-colorful__hue-pointer {
   z-index: 2;
 }

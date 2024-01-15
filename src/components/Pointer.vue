@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { formatClassName } from '../utils'
+import { formatClassName } from '../utils';
 
 interface Props {
   // className?: string;
@@ -10,7 +10,7 @@ interface Props {
 
 withDefaults(defineProps<Props>(), { top: 0.5 })
 
-const nodeClassName = formatClassName(['react-colorful__pointer'])
+const nodeClassName = formatClassName(['vue-colorful__pointer'])
 </script>
 
 <template>
@@ -21,6 +21,6 @@ const nodeClassName = formatClassName(['react-colorful__pointer'])
       left: `${left * 100}%`,
     }"
   >
-    <div class="react-colorful__pointer-fill" :style="{ backgroundColor: color }" />
+    <div class="vue-colorful__pointer-fill" :style="{ backgroundColor: color }" />
   </div>
 </template>

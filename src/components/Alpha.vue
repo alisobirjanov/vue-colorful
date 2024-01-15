@@ -4,6 +4,7 @@ import type { HsvaColor } from '../types'
 import { clamp, formatClassName, hsvaToHslaString, round } from '../utils'
 import type { Interaction } from './Interactive.vue'
 import Interactive from './Interactive.vue'
+import Pointer from './Pointer.vue'
 
 interface Props {
   hsva: HsvaColor
@@ -34,13 +35,13 @@ const gradientStyle = computed(() => {
   }
 })
 
-const nodeClassName = formatClassName(['react-colorful__alpha'])
+const nodeClassName = formatClassName(['vue-colorful__alpha'])
 const ariaValue = computed(() => round(props.hsva.a * 100))
 </script>
 
 <template>
   <div :class="nodeClassName">
-    <div className="react-colorful__alpha-gradient" :style="gradientStyle" />
+    <div className="vue-colorful__alpha-gradient" :style="gradientStyle" />
     <Interactive
       aria-label="Alpha"
       :aria-valuetext="`${ariaValue}%`"
@@ -51,7 +52,7 @@ const ariaValue = computed(() => round(props.hsva.a * 100))
       @on-key="handleKey"
     >
       <Pointer
-        class="react-colorful__alpha-pointer"
+        class="vue-colorful__alpha-pointer"
         :left="hsva.a"
         :color="hsvaToHslaString(hsva)"
       />

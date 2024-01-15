@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { clamp } from '../utils'
+import { ref } from 'vue';
+import { clamp } from '../utils';
 
 export interface Interaction {
   left: number
@@ -149,7 +149,7 @@ function toggleDocumentEvents(state?: boolean) {
 <template>
   <div
     ref="container"
-    class="react-colorful__interactive"
+    class="vue-colorful__interactive"
     role="slider"
     tabIndex="0"
     @touchstart="handleMoveStart"

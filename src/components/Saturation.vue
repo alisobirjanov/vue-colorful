@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { clamp, hsvaToHslString, round } from '../utils'
-import type { Interaction } from './Interactive.vue'
-import Interactive from './Interactive.vue'
-import Pointer from './Pointer.vue'
+import { clamp, hsvaToHslString, round } from '../utils';
+import type { Interaction } from './Interactive.vue';
+import Interactive from './Interactive.vue';
+import Pointer from './Pointer.vue';
 
 // import { HsvaColor } from "../../types";
 
@@ -49,7 +49,7 @@ const handleKey = (offset: Interaction) => {
 </script>
 
 <template>
-  <div className="react-colorful__saturation" :style="{ backgroundColor: hsvaToHslString({ h: hsva.h, s: 100, v: 100, a: 1 }) }">
+  <div className="vue-colorful__saturation" :style="{ backgroundColor: hsvaToHslString({ h: hsva.h, s: 100, v: 100, a: 1 }) }">
     <Interactive
       aria-label="Color"
       :aria-valuetext="`Saturation ${round(hsva.s)}%, Brightness ${round(hsva.v)}%`"
@@ -57,7 +57,7 @@ const handleKey = (offset: Interaction) => {
       @on-key="handleKey"
     >
       <Pointer
-        class="react-colorful__saturation-pointer"
+        class="vue-colorful__saturation-pointer"
         :top="1 - hsva.v / 100"
         :left="hsva.s / 100"
         :color="hsvaToHslString(hsva)"
