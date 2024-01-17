@@ -1,39 +1,56 @@
 <script setup lang="ts">
-// import { useColorManipulation } from "../../hooks/useColorManipulation";
-// import { useStyleSheet } from "../../hooks/useStyleSheet";
-// import { ColorModel, ColorPickerBaseProps, AnyColor } from "../types";
+import { ref, watch } from 'vue'
+import { hsvaColorModel } from '../models'
 
-import { useColorManipulation } from '../hooks/useColorManipulation'
-import { formatClassName } from '../utils'
-import Alpha from './Alpha.vue'
 import Hue from './Hue.vue'
+import Alpha from './Alpha.vue'
 import Saturation from './Saturation.vue'
+import { AnyColor, ColorModel, HsvaColor } from '../types'
 
-// interface Props<T extends AnyColor> extends Partial < ColorPickerBaseProps < T >> {
-//   colorModel: ColorModel<T>;
-// }
 
 interface Props {
-  colorModel: any
-  color?: string
+  colorModel?: ColorModel<any>
+  modelValue?: AnyColor
   alpha: boolean
 }
 
-const { colorModel, color = colorModel.defaultColor } = defineProps<Props>()
+const props = withDefaults(defineProps<Props>(), {
+  colorModel: () => hsvaColorModel
+})
 
 const emit = defineEmits<{
-  (e: 'onChange', newColor: string): void
+  (e: 'update:modelValue', newColor: AnyColor): void
 }>()
 
-const nodeClassName = formatClassName(['react-colorful'])
+let cache: HsvaColor = props.colorModel.defaultColor
+let hasChange = false
 
-const [hsva, updateHsva] = useColorManipulation(colorModel, color, e => emit('onChange', e))
+const initialValue = props.colorModel.toHsva(props.modelValue || cache)
+const hsva = ref(initialValue)
+
+function updateHsva(newColor: any) {
+  cache = Object.assign({}, cache, newColor)
+  hsva.value = cache
+  hasChange = true
+  emit('update:modelValue', props.colorModel.fromHsva(cache))
+}
+
+watch(() => props.modelValue, (newValue: any) => {
+  if(hasChange) {
+    return hasChange = false
+  }
+  cache = props.colorModel.toHsva(newValue)
+  hsva.value = cache
+})
+
 </script>
 
 <template>
-  <div :class="nodeClassName">
+  <div class="react-colorful">
     <Saturation :hsva="hsva" @on-change="updateHsva" />
-    <Hue :hue="hsva.h" @on-change="updateHsva" />
-    <Alpha :hsva="hsva" class="vue-colorful__last-control" @on-change="updateHsva" />
+    <div class="vue-colorful__controls">
+      <Hue :hue="hsva.h" @on-change="updateHsva" class="vue-colorful__control" />
+      <Alpha v-if="alpha" :hsva="hsva"  @on-change="updateHsva" class="vue-colorful__control"/>
+    </div>
   </div>
 </template>
