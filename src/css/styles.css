@@ -105,3 +105,10 @@
 .vue-colorful__hue-pointer {
   z-index: 2;
 }
+
+
+.vue-colorful__control:nth-last-child(-n + 1) {
+  border-radius: 0 0 8px 8px;
+  /* display: none; */
+  /* border: 1px solid red; */
+}
