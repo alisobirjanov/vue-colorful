@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import type { HsvaColor } from '../types'
-import { clamp, formatClassName, hsvaToHslaString, round } from '../utils'
+import { clamp, hsvaToHslaString, round } from '../utils'
 import type { Interaction } from './Interactive.vue'
 import Interactive from './Interactive.vue'
 import Pointer from './Pointer.vue'
@@ -35,12 +35,11 @@ const gradientStyle = computed(() => {
   }
 })
 
-const nodeClassName = formatClassName(['vue-colorful__alpha'])
 const ariaValue = computed(() => round(props.hsva.a * 100))
 </script>
 
 <template>
-  <div :class="nodeClassName">
+  <div class="vue-colorful__alpha">
     <div className="vue-colorful__alpha-gradient" :style="gradientStyle" />
     <Interactive
       aria-label="Alpha"

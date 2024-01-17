@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { clamp, formatClassName, hsvaToHslString, round } from '../utils';
+import { clamp, hsvaToHslString, round } from '../utils';
 import type { Interaction } from './Interactive.vue';
 import Interactive from './Interactive.vue';
 import Pointer from './Pointer.vue';
@@ -25,11 +25,10 @@ const handleKey = (offset: Interaction) => {
   })
 }
 
-const nodeClassName = formatClassName(['vue-colorful__hue'])
 </script>
 
 <template>
-  <div :class="nodeClassName">
+  <div class="vue-colorful__hue">
     <Interactive
       aria-label="Hue" :aria-valuenow="round(hue)" aria-valuemax="360" aria-valuemin="0" @on-move="handleMove"
       @on-key="handleKey"

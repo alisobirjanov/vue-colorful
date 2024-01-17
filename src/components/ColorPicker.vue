@@ -22,11 +22,10 @@ const emit = defineEmits<{
   (e: 'update:modelValue', newColor: AnyColor): void
 }>()
 
-let cache: HsvaColor = props.colorModel.defaultColor
 let hasChange = false
+let cache: HsvaColor = props.colorModel.toHsva(props.modelValue || props.colorModel.defaultColor)
 
-const initialValue = props.colorModel.toHsva(props.modelValue || cache)
-const hsva = ref(initialValue)
+const hsva = ref(cache)
 
 function updateHsva(newColor: any) {
   cache = Object.assign({}, cache, newColor)

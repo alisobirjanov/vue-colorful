@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { formatClassName } from '../utils';
 
 interface Props {
   // className?: string;
@@ -10,12 +9,11 @@ interface Props {
 
 withDefaults(defineProps<Props>(), { top: 0.5 })
 
-const nodeClassName = formatClassName(['vue-colorful__pointer'])
 </script>
 
 <template>
   <div
-    :class="nodeClassName"
+    class="vue-colorful__pointer"
     :style="{
       top: `${top * 100}%`,
       left: `${left * 100}%`,
