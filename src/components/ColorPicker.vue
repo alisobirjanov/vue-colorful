@@ -2,11 +2,10 @@
 import { ref, watch } from 'vue'
 import { hsvaColorModel } from '../models'
 
+import type { AnyColor, ColorModel, HsvaColor } from '../types'
 import Hue from './Hue.vue'
 import Alpha from './Alpha.vue'
 import Saturation from './Saturation.vue'
-import { AnyColor, ColorModel, HsvaColor } from '../types'
-
 
 interface Props {
   colorModel?: ColorModel<any>
@@ -15,7 +14,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  colorModel: () => hsvaColorModel
+  colorModel: () => hsvaColorModel,
 })
 
 const emit = defineEmits<{
@@ -35,21 +34,20 @@ function updateHsva(newColor: any) {
 }
 
 watch(() => props.modelValue, (newValue: any) => {
-  if(hasChange) {
+  if (hasChange) {
     return hasChange = false
   }
   cache = props.colorModel.toHsva(newValue)
   hsva.value = cache
 })
-
 </script>
 
 <template>
   <div class="react-colorful">
     <Saturation :hsva="hsva" @on-change="updateHsva" />
     <div class="vue-colorful__controls">
-      <Hue :hue="hsva.h" @on-change="updateHsva" class="vue-colorful__control" />
-      <Alpha v-if="alpha" :hsva="hsva"  @on-change="updateHsva" class="vue-colorful__control"/>
+      <Hue :hue="hsva.h" class="vue-colorful__control" @on-change="updateHsva" />
+      <Alpha v-if="alpha" :hsva="hsva" class="vue-colorful__control" @on-change="updateHsva" />
     </div>
   </div>
 </template>

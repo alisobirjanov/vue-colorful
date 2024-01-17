@@ -4,11 +4,10 @@ import ColorPicker from './components/ColorPicker.vue'
 import { rgbaColorModel } from './models'
 
 const rgbaColor = ref()
-
 </script>
 
 <template>
   <div>
-    <ColorPicker :color-model="rgbaColorModel" v-model="rgbaColor" :alpha="false"/>
+    <ColorPicker v-model="rgbaColor" :color-model="rgbaColorModel" :alpha="false" />
   </div>
 </template>

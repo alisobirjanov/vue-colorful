@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 interface Props {
   // className?: string;
   top?: number
@@ -8,7 +7,6 @@ interface Props {
 }
 
 withDefaults(defineProps<Props>(), { top: 0.5 })
-
 </script>
 
 <template>

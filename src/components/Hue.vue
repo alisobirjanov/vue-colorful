@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { clamp, hsvaToHslString, round } from '../utils';
-import type { Interaction } from './Interactive.vue';
-import Interactive from './Interactive.vue';
-import Pointer from './Pointer.vue';
+import { clamp, hsvaToHslString, round } from '../utils'
+import type { Interaction } from './Interactive.vue'
+import Interactive from './Interactive.vue'
+import Pointer from './Pointer.vue'
 
 interface Props {
   hue: number
@@ -24,7 +24,6 @@ const handleKey = (offset: Interaction) => {
     h: clamp(props.hue + offset.left * 360, 0, 360),
   })
 }
-
 </script>
 
 <template>

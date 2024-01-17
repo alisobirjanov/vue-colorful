@@ -1,16 +1,11 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import { clamp } from '../utils';
+import { ref } from 'vue'
+import { clamp } from '../utils'
 
 export interface Interaction {
   left: number
   top: number
 }
-
-// interface Props {
-//   onMove(interaction: Interaction): void;
-//   onKey(offset: Interaction): void;
-// }
 
 const emit = defineEmits<{
   (e: 'onMove', interaction: Interaction): void

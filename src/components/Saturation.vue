@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { clamp, hsvaToHslString, round } from '../utils';
-import type { Interaction } from './Interactive.vue';
-import Interactive from './Interactive.vue';
-import Pointer from './Pointer.vue';
+import { clamp, hsvaToHslString, round } from '../utils'
+import type { Interaction } from './Interactive.vue'
+import Interactive from './Interactive.vue'
+import Pointer from './Pointer.vue'
 
 // import { HsvaColor } from "../../types";
 
