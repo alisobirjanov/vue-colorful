@@ -22,27 +22,27 @@ defineProps<{
 const actions = [
   {
     text: 'Getting Started',
-    link: '/guide'
-  }
+    link: '/guide',
+  },
 ]
 
 const features = [
 
   {
     title: '🗜 Small',
-    details: 'Just 2,8 KB gzipped (13x lighter than react-color).'
+    details: 'Just 2,8 KB gzipped (13x lighter than react-color).',
   },
   {
     title: '🌳 Tree-shakeable',
-    details: 'Only the parts you use will be imported into your apps bundle.'
+    details: 'Only the parts you use will be imported into your apps bundle.',
   },
   {
     title: '👫 Cross-browser',
-    details: 'Works out-of-the-box for most browsers, regardless of version.'
+    details: 'Works out-of-the-box for most browsers, regardless of version.',
   },
   {
     title: '📲 Mobile-friendly',
-    details: 'Supports mobile devices and touch screens.'
+    details: 'Supports mobile devices and touch screens.',
   },
 ]
 
@@ -60,8 +60,12 @@ const heroImageSlotExists = inject('hero-image-slot-exists') as Ref<boolean>
             <h1 v-if="!name" class="name">
               <span class="clip">Vue Colorful</span>
             </h1>
-            <p class="text">A tiny color picker</p>
-            <p class="tagline">💨 No dependencies</p>
+            <p class="text">
+              A tiny color picker
+            </p>
+            <p class="tagline">
+              💨 No dependencies
+            </p>
           </slot>
 
           <div v-if="actions" class="actions">
@@ -73,21 +77,19 @@ const heroImageSlotExists = inject('hero-image-slot-exists') as Ref<boolean>
 
         <div class="image">
           <div class="image-container">
-
-            <div class="image-bg" :style="{
-              backgroundImage: `linear-gradient( -45deg, #06100f 10%, ${color} )`,
-              filter: 'blur(100px)'
-            }" />
+            <div
+              class="image-bg" :style="{
+                backgroundImage: `linear-gradient( -45deg, #06100f 10%, ${color} )`,
+                filter: 'blur(100px)',
+              }"
+            />
             <div class="image-src">
-
               <ColorPicker v-model="color" :color-model="hexColorModel" />
             </div>
           </div>
         </div>
       </div>
     </div>
-
-
 
     <VPFeatures :features="features" />
 
@@ -381,4 +383,3 @@ const heroImageSlotExists = inject('hero-image-slot-exists') as Ref<boolean>
   }
 }
 </style>
-
