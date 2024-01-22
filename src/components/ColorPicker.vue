@@ -10,11 +10,12 @@ import Saturation from './Saturation.vue'
 interface Props {
   colorModel?: ColorModel<any>
   modelValue?: AnyColor
-  alpha: boolean
+  alpha?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
   colorModel: () => hsvaColorModel,
+  alpha: false,
 })
 
 const emit = defineEmits<{
