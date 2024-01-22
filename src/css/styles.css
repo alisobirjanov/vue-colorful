@@ -56,9 +56,9 @@
 }
 
 /* Round bottom corners of the last element: `Hue` for `ColorPicker` or `Alpha` for `AlphaColorPicker` */
-.vue-colorful__last-control {
+/* .vue-colorful__last-control {
   border-radius: 0 0 8px 8px;
-}
+} */
 
 .vue-colorful__interactive {
   position: absolute;
@@ -109,6 +109,4 @@
 
 .vue-colorful__control:nth-last-child(-n + 1) {
   border-radius: 0 0 8px 8px;
-  /* display: none; */
-  /* border: 1px solid red; */
 }
