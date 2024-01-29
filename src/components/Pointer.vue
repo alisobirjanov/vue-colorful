@@ -1,6 +1,5 @@
 <script setup lang="ts">
 interface Props {
-  // className?: string;
   top?: number
   left: number
   color: string
