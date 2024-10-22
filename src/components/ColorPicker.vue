@@ -44,7 +44,7 @@ watch(() => props.modelValue, (newValue: any) => {
 </script>
 
 <template>
-  <div class="react-colorful">
+  <div class="vue-colorful">
     <Saturation :hsva="hsva" @on-change="updateHsva" />
     <div class="vue-colorful__controls">
       <Hue :hue="hsva.h" class="vue-colorful__control" @on-change="updateHsva" />
